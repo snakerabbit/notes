@@ -2,7 +2,6 @@
 ## To Get Started:
 * Clone this repository and unzip the folder
 * Go to the folder's directory in the terminal
-* Run `npm init --y` in the terminal.
 * Run `npm install` to install dependencies.
 * Run `npm start` to run application
 
