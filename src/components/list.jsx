@@ -12,14 +12,17 @@ class List extends React.Component {
     if(this.props.closeModal){
       this.props.closeModal();
     }
-    return this.props.setCurrentNote(note);
+    if(note){
+      return this.props.setCurrentNote(note);
+    }
+
   }
 
   render(){
     if(this.props.notes){
       if(this.props.notes.length === 0){
         return(
-          <div className='list'>
+          <div onClick={this.handleClick}>
             <p style={{opacity:'0.3'}}>No Notes</p>
           </div>
         );

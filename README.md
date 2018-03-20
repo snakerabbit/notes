@@ -8,7 +8,7 @@
 
 
 ## About:
-Notes is a single page application that allows for creating, editing, and deleting notes.
+Notes is a single page application that allows for creating, editing, and deleting notes.  All notes are saved in localStorage.
 
 Technologies Used:
 * React
