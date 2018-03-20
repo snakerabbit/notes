@@ -21,8 +21,8 @@ Responsivity:
 
 * For screens smaller than standard width (320px), a modal can be utilized to view and select from the notes list by selecting the burger icon.
 
-Closed Modal:
-![alt text](https://image.ibb.co/nekcZc/Screen_Shot_2018_03_20_at_7_22_48_AM.png "Small")
+* Closed Modal:
+ ![alt text](https://image.ibb.co/nekcZc/Screen_Shot_2018_03_20_at_7_22_48_AM.png "Small")
 
-Open Modal:
+* Open Modal:
 ![alt text](https://image.ibb.co/jM2fnx/Screen_Shot_2018_03_20_at_7_23_20_AM.png "Small")
