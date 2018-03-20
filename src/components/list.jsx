@@ -9,6 +9,7 @@ class List extends React.Component {
   }
 
   handleClick(note){
+    this.props.closeModal();
     return this.props.setCurrentNote(note);
   }
 
@@ -22,7 +23,7 @@ class List extends React.Component {
         );
       } else {
         return(
-          <div className='list'>
+          <div>
             {this.props.notes.map((note, idx) =>{
               return(
                 <ListItem key={idx} note={note} handleClick={this.handleClick}/>

@@ -3,8 +3,16 @@ import '../App.css';
 import ToolBar from './toolbar';
 import List from './list';
 import Note from './note';
+import Modal from'react-modal';
 
-
+const styles={
+  content : {
+  top                   : '0',
+  left                  : '0',
+  right                 : '0',
+  bottom                : '0',
+}
+};
 
 class App extends Component {
   constructor(props){
@@ -18,6 +26,8 @@ class App extends Component {
     this.createNote = this.createNote.bind(this);
     this.setCurrentNote = this.setCurrentNote.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   createNote(note){
@@ -47,6 +57,18 @@ class App extends Component {
 
   }
 
+  openModal(){
+    this.setState({
+      modalOpen: true
+    });
+  }
+  closeModal(){
+    this.setState({
+      modalOpen: false
+    });
+  }
+
+
   componentDidMount(){
 
     this.props.fetchNotes();
@@ -54,9 +76,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ToolBar createNote={this.createNote} notes={this.props.notes} deleteNote={this.deleteNote}/>
-        <List notes={this.props.notes} setCurrentNote={this.setCurrentNote} fetchNote={this.props.fetchNote}/>
-        <div id='hidden-div'></div>
+        <ToolBar createNote={this.createNote} notes={this.props.notes} deleteNote={this.deleteNote} openModal={this.openModal}/>
+        <div className='list'>
+          <List notes={this.props.notes} setCurrentNote={this.setCurrentNote} fetchNote={this.props.fetchNote}/>
+        </div>
+        <Modal
+          isOpen={this.state.modalOpen}
+          style={styles}>
+          <List notes={this.props.notes} setCurrentNote={this.setCurrentNote} fetchNote={this.props.fetchNote} closeModal={this.closeModal}/>
+          </Modal>
         <Note note={this.state.current} updateNote={this.props.updateNote}/>
       </div>
     );

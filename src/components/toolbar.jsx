@@ -5,6 +5,7 @@ class ToolBar extends React.Component {
     super(props);
     this.handleCreate = this.handleCreate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.openModal = this.openModal.bind(this);
   }
 
   handleCreate(){
@@ -20,6 +21,10 @@ class ToolBar extends React.Component {
     this.props.deleteNote();
   }
 
+  openModal(){
+    this.props.openModal();
+  }
+
   render(){
     return(
       <div className='toolbar'>
@@ -31,7 +36,7 @@ class ToolBar extends React.Component {
           <div onClick={this.handleDelete} className='buttons'>
             <img src="http://www.kronostek.eu/tutorial/images/ico_elimina.png" alt="Delete"/>
           </div>
-          <div onClick={this.handleDelete} className='buttons' id='hidden'>
+          <div onClick={this.openModal} className='buttons' id='hidden'>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-KFQwZY63y19uHVVgk86v3-W2Teaqkj-DZ6EWV5o7bdnAqymDcg" alt="List"/>
           </div>
           </div>
