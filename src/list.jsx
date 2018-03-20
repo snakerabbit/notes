@@ -25,7 +25,9 @@ class List extends React.Component {
       );
     } else {
       return(
-        <div className='list'></div>
+        <div className='list'>
+          <p>No Notes</p>
+        </div>
       );
     }
 

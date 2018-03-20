@@ -16,7 +16,7 @@ class ToolBar extends React.Component {
   }
 
   handleDelete(){
-    alert('delete');
+    this.props.deleteNote();
   }
 
   render(){

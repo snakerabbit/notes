@@ -17,15 +17,14 @@ class App extends Component {
     this.createNote = this.createNote.bind(this);
     this.updateNote = this.updateNote.bind(this);
     this.setCurrentNote = this.setCurrentNote.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
   }
 
   createNote(note){
-    // let notes = JSON.parse(localStorage.getItem('notes'));
-    // notes.push(note);
-    // localStorage.setItem('notes', JSON.stringify(notes));
-    // this.setState({
-    //   current:note
-    // });
+    this.props.createNote(note);
+    this.setState({
+      current:note
+    });
   }
 
   updateNote(note){
@@ -45,15 +44,32 @@ class App extends Component {
     });
   }
 
+  deleteNote(){
+    this.props.deleteNote(this.state.current.title);
+
+  }
+
   componentDidMount(){
+    // localStorage.removeItem('notes');
     this.props.fetchNotes();
+    // let notes = [
+    //   {
+    //     title:'Note 1',
+    //     text:'note note note '
+    //   },
+    //   {
+    //     title:'Note 2',
+    //     text:'note note note'
+    //   }
+    // ];
+    // localStorage.setItem('notes', JSON.stringify(notes));
   }
   render() {
     return (
       <div className="App">
-        <ToolBar createNote={this.createNote} notes={this.props.notes}/>
+        <ToolBar createNote={this.createNote} notes={this.props.notes} deleteNote={this.deleteNote}/>
         <List data = {DATA} notes={this.props.notes} setCurrentNote={this.setCurrentNote}/>
-        <Note note={this.state.current} updateNote={this.updateNote}/>
+        <Note note={this.state.current} updateNote={this.props.updateNote}/>
       </div>
     );
   }
