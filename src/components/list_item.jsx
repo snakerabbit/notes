@@ -13,11 +13,19 @@ class ListItem extends React.Component {
   }
 
   render(){
-    return(
-      <div onClick={this.handleClick} className='buttons'>
-        <p>{this.props.note.title}</p>
-      </div>
-    );
+    if(this.props.note){
+      return(
+        <div onClick={this.handleClick} className='buttons'>
+          <p>{this.props.note.title}</p>
+        </div>
+      );
+    } else{
+      return(
+        <div onClick={this.handleClick} className='buttons'>
+        </div>
+      );
+    }
+
   }
 }
 
