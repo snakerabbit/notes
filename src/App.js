@@ -56,7 +56,6 @@ class App extends Component {
         text:'this is note 2'
       }
     ];
-    localStorage.setItem('notes', JSON.stringify(notes));
 
   }
   render() {
