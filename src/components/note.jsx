@@ -35,7 +35,7 @@ class Note extends React.Component {
       let firstLine = newNote.text.split('\n')[0];
       let newTitle = firstLine;
       let count=3;
-      while(newTitle.length > 12 && count !=0){
+      while(newTitle.length > 12 && count !== 0){
         newTitle = firstLine.split(' ').slice(0, count).join(' ')+"...";
         count -=1;
       }

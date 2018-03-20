@@ -34,12 +34,15 @@ class App extends Component {
   }
 
   deleteNote(){
-    this.props.deleteNote(this.state.current.objectID);
-    if(this.props.notes.length > 0){
-      this.setState({
-        current:this.props.notes[this.state.current.objectID-1]
-      });
+    if(this.state.current){
+      this.props.deleteNote(this.state.current.objectID);
+      if(this.props.notes.length > 0){
+        this.setState({
+          current:this.props.notes[this.state.current.objectID-1]
+        });
+      }
     }
+
 
   }
 
