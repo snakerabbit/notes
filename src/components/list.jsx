@@ -9,7 +9,9 @@ class List extends React.Component {
   }
 
   handleClick(note){
-    this.props.closeModal();
+    if(this.props.closeModal){
+      this.props.closeModal();
+    }
     return this.props.setCurrentNote(note);
   }
 
