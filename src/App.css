@@ -12,7 +12,6 @@ body {
   width:auto;
 }
 
-
 .toolbar{
   border: solid lightgrey 1px;
   display:flex;
@@ -25,6 +24,7 @@ body {
   width:auto;
   height:100%;
   overflow:scroll;
+  min-width:100px;
 }
 
 .toolbar > * {
@@ -43,6 +43,7 @@ body {
 
 .buttons:hover {
   cursor: pointer;
+  opacity:0.6;
 }
 
 .note > *{
@@ -67,4 +68,17 @@ body {
 
 img {
   height: 20px;
+}
+
+#hidden{
+  display:none
+}
+
+@media (max-width:300px){
+  .list{
+    display:none;
+  }
+  #hidden{
+    display:inline;
+  }
 }

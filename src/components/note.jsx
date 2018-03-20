@@ -6,7 +6,7 @@ class Note extends React.Component {
     this.state = {
       title:this.props.note.title,
       text:this.props.note.text,
-      changed: false
+      objectID: this.props.note.objectID
     };
 
   this.handleChange = this.handleChange.bind(this);
@@ -16,31 +16,34 @@ class Note extends React.Component {
   handleChange(e){
     e.preventDefault();
     this.setState({
-      text:e.target.value,
-      changed: true
+      text:e.target.value
     });
 
-    setTimeout(this.handleSave, 1000);
+    setTimeout(this.handleSave, 3000);
   }
+
+
 
   handleSave(){
     let newNote={
       title:this.state.title,
-      text: this.state.text
+      text: this.state.text,
+      objectID: this.state.objectID
     };
-
-
-    console.log(newNote);
-
+    if(this.state.title === "New Note" && this.state.text){
+      newNote.title = newNote.text.split('\n')[0];
+    }
     this.props.updateNote(newNote);
   }
 
 
   componentWillReceiveProps(newProps){
     if(this.props.note !== newProps.note){
+
       this.setState({
         title:newProps.note.title,
-        text:newProps.note.text
+        text:newProps.note.text,
+        objectID: newProps.note.objectID
       });
     }
   }

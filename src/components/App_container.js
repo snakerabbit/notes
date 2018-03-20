@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { fetchNotes, updateNote, createNote, deleteNote, fetchNote} from '../actions/actions';
 import { connect } from 'react-redux';
  import App from './App';

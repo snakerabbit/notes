@@ -34,14 +34,13 @@ export const fetchNote = id =>{
 };
 
 export const createNote = note => {
-  const newNote = APIUtil.createNote(note);
-  console.log(newNote);
+  APIUtil.createNote(note);
   const notes = APIUtil.fetchNotes();
   return receiveNotes(notes);
 };
 
 export const updateNote = note => {
-  const updatedNote = APIUtil.updateNote(note);
+  APIUtil.updateNote(note);
   const notes = APIUtil.fetchNotes();
   return receiveNotes(notes);
 };

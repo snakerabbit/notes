@@ -14,19 +14,26 @@ class List extends React.Component {
 
   render(){
     if(this.props.notes){
-      return(
-        <div className='list'>
-          {this.props.notes.map((note, idx) =>{
-            return(
-              <ListItem key={idx} note={note} handleClick={this.handleClick}/>
-            );
-          })}
-        </div>
-      );
+      if(this.props.notes.length === 0){
+        return(
+          <div className='list'>
+            <p>No Notes</p>
+          </div>
+        );
+      } else {
+        return(
+          <div className='list'>
+            {this.props.notes.map((note, idx) =>{
+              return(
+                <ListItem key={idx} note={note} handleClick={this.handleClick}/>
+              );
+            })}
+          </div>
+        );
+      }
     } else {
       return(
         <div className='list'>
-          <p>No Notes</p>
         </div>
       );
     }

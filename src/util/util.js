@@ -18,15 +18,15 @@ export const createNote = note => {
 
 export const updateNote = note => {
   let notes = JSON.parse(localStorage.getItem('notes'));
-  let oldNote = notes.find(n => n.title === note.title);
-  notes[notes.indexOf(oldNote)] = note;
+  let oldNote = notes.find(n => n.objectID === note.objectID);
+  notes[oldNote.objectID] = note;
   localStorage.setItem('notes', JSON.stringify(notes));
   return note;
 };
 
-export const deleteNote = title => {
+export const deleteNote = id => {
   let notes = JSON.parse(localStorage.getItem('notes'));
-  let newNotes = notes.filter(n => n.title !== title);
+  let newNotes = notes.filter(n => n.objectID !== id);
   localStorage.setItem('notes', JSON.stringify(newNotes));
   return newNotes;
 };

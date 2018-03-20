@@ -34,30 +34,23 @@ class App extends Component {
   }
 
   deleteNote(){
-    this.props.deleteNote(this.state.current.title);
+    this.props.deleteNote(this.state.current.objectID);
+    if(this.props.notes.length > 0){
+      this.setState({
+        current:this.props.notes[this.state.current.objectID-1]
+      });
+    }
 
   }
 
   componentDidMount(){
-    // localStorage.removeItem('notes');
     this.props.fetchNotes();
-    // let notes = [
-    //   {
-    //     title:'Note 1',
-    //     text:'note note note '
-    //   },
-    //   {
-    //     title:'Note 2',
-    //     text:'note note note'
-    //   }
-    // ];
-    // localStorage.setItem('notes', JSON.stringify(notes));
   }
   render() {
     return (
       <div className="App">
         <ToolBar createNote={this.createNote} notes={this.props.notes} deleteNote={this.deleteNote}/>
-        <List notes={this.props.notes} setCurrentNote={this.setCurrentNote}/>
+        <List notes={this.props.notes} setCurrentNote={this.setCurrentNote} fetchNote={this.props.fetchNote}/>
         <Note note={this.state.current} updateNote={this.props.updateNote}/>
       </div>
     );
