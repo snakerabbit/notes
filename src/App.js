@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      notes:JSON.parse(localStorage.getItem('notes')),
+      notes:[],
       current:JSON.parse(localStorage.getItem('notes'))[0]
     };
 
@@ -20,22 +20,22 @@ class App extends Component {
   }
 
   createNote(note){
-    let notes = JSON.parse(localStorage.getItem('notes'));
-    notes.push(note);
-    localStorage.setItem('notes', JSON.stringify(notes));
-    this.setState({
-      current:note
-    });
+    // let notes = JSON.parse(localStorage.getItem('notes'));
+    // notes.push(note);
+    // localStorage.setItem('notes', JSON.stringify(notes));
+    // this.setState({
+    //   current:note
+    // });
   }
 
   updateNote(note){
-    let notes = JSON.parse(localStorage.getItem('notes'));
-    let newNotes = notes.filter(el => !this.state.current);
-    newNotes.push(note);
-    localStorage.setItem('notes', JSON.stringify(newNotes));
-    this.setState({
-      current:note
-    });
+    // let notes = JSON.parse(localStorage.getItem('notes'));
+    // let newNotes = notes.filter(el => !this.state.current);
+    // newNotes.push(note);
+    // localStorage.setItem('notes', JSON.stringify(newNotes));
+    // this.setState({
+    //   current:note
+    // });
 
   }
 
@@ -46,24 +46,13 @@ class App extends Component {
   }
 
   componentDidMount(){
-    let notes=[
-      {
-        title:'Note1',
-        text:'this is note 1'
-      },
-      {
-        title:'Note2',
-        text:'this is note 2'
-      }
-    ];
-
+    this.props.fetchNotes();
   }
   render() {
-    console.log(this.state.current);
     return (
       <div className="App">
-        <ToolBar createNote={this.createNote} notes={this.state.notes}/>
-        <List data = {DATA} notes={this.state.notes} setCurrentNote={this.setCurrentNote}/>
+        <ToolBar createNote={this.createNote} notes={this.props.notes}/>
+        <List data = {DATA} notes={this.props.notes} setCurrentNote={this.setCurrentNote}/>
         <Note note={this.state.current} updateNote={this.updateNote}/>
       </div>
     );

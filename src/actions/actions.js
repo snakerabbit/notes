@@ -23,27 +23,27 @@ export const removeNote = id => ({
 	id
 });
 
-export const fetchNotes = dispatch => {
+export const fetchNotes = () => {
   const notes = APIUtil.fetchNotes();
-  return dispatch(receiveNotes(notes));
+  return receiveNotes(notes);
 };
 
-export const fetchNote = id => dispatch =>{
+export const fetchNote = id =>{
   const note = APIUtil.fetchNote(id);
-  return dispatch(receiveNote(note));
+  return receiveNote(note);
 };
 
-export const createNote = note => dispatch =>{
+export const createNote = note => {
   const newNote = APIUtil.createNote(newNote);
-  return dispatch(receiveNote(newNote));
+  return receiveNote(newNote);
 };
 
-export const updateNote = note => dispatch =>{
+export const updateNote = note => {
   const updatedNote = APIUtil.updateNote(note);
-  return dispatch(receiveNote(updatedNote));
+  return receiveNote(updatedNote);
 };
 
-export const deleteNote = id => dispatch =>{
+export const deleteNote = id => {
   APIUtil.deleteNote(id);
-  return dispatch(removeNote(id));
+  return removeNote(id);
 };

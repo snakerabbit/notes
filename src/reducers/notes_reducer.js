@@ -12,10 +12,10 @@ const NotesReducer = (state={}, action) => {
   let newState = merge({}, state);
   switch(action.type) {
     case RECEIVE_NOTES:
-      return action.notes;
+      return {notes: action.notes};
     case RECEIVE_NOTE:
-      return merge(newState, {notes: {[action.note.id]: action.note}});
-    case REMOVE_ROOM:
+      return merge(newState, {[action.note.id]: action.note});
+    case REMOVE_NOTE:
       delete newState[action.note.id];
       return newState;
     default:
