@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class ListItem extends React.Component {
   constructor(props){
     super(props);
@@ -7,6 +8,7 @@ class ListItem extends React.Component {
   }
 
   handleClick(e){
+
     return this.props.handleClick(this.props.note);
   }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import ListItem from './list_item';
+
 class List extends React.Component {
   constructor(props){
     super(props);
@@ -11,13 +12,12 @@ class List extends React.Component {
     return this.props.setCurrentNote(note);
   }
 
-
   render(){
     if(this.props.notes){
       if(this.props.notes.length === 0){
         return(
           <div className='list'>
-            <p>No Notes</p>
+            <p style={{opacity:'0.3'}}>No Notes</p>
           </div>
         );
       } else {

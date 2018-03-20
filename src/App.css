@@ -28,8 +28,7 @@ body {
 }
 
 .toolbar > * {
-  padding-left: 15px;
-  padding-right: 15px;
+
 }
 
 .list{
@@ -40,10 +39,17 @@ body {
   overflow:scroll;
 }
 
+#tools{
+  display:inherit;
+}
+#tools > * {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 
 .buttons:hover {
   cursor: pointer;
-  opacity:0.6;
+  opacity:0.4;
 }
 
 .note > *{
@@ -81,4 +87,27 @@ img {
   #hidden{
     display:inline;
   }
+}
+
+textarea
+{
+   font-family: 'Cormorant Garamond', serif;
+   font-size: 16px;
+}
+
+::-webkit-input-placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-size:16px;
+}
+:-moz-placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-size:16px;
+}
+::-moz-placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-size:16px;
+}
+:-ms-input-placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-size:16px;
 }

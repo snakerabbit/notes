@@ -11,7 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       notes:[],
-      current:JSON.parse(localStorage.getItem('notes'))[0] || null
+      current:JSON.parse(localStorage.getItem('notes'))[0]
     };
 
     this.createNote = this.createNote.bind(this);

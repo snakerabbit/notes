@@ -36,8 +36,19 @@ class Note extends React.Component {
     this.props.updateNote(newNote);
   }
 
+  componentDidMount(){
+    if(this.props.note){
+      this.setState({
+        title:this.props.note.title,
+        text:this.props.note.text,
+        objectID: this.props.note.objectID
+      });
+    }
+  }
+
 
   componentWillReceiveProps(newProps){
+    console.log(newProps);
     if(newProps.note===undefined){
       this.setState({
         title:'',
@@ -47,7 +58,6 @@ class Note extends React.Component {
     }
 
     else if(this.props.note !== newProps.note){
-
         this.setState({
           title:newProps.note.title,
           text:newProps.note.text,
@@ -57,6 +67,7 @@ class Note extends React.Component {
   }
 
   render(){
+    if(this.state.title){
       return(
         <div className='note'>
           <form>
@@ -66,6 +77,15 @@ class Note extends React.Component {
           </form>
         </div>
       );
+    } else {
+      return(
+        <div className='note'>
+          <form>
+          </form>
+        </div>
+      );
+    }
+
 
   }
 }
