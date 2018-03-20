@@ -1,7 +1,15 @@
+body {
+  top:0;
+  margin:0;
+  height: 600px;
+}
+
 .App {
   text-align: center;
   font-family: 'Cormorant Garamond', serif;
   color: grey;
+  height:100%;
+  width:auto;
 }
 
 
@@ -15,7 +23,7 @@
 .note{
   background-color:#f9f8f7;
   width:auto;
-  height: 600px;
+  height:100%;
   overflow:scroll;
 }
 

@@ -52,7 +52,6 @@ class Note extends React.Component {
           <textarea placeholder='type here...'
             value={this.state.text} id='input'
             onChange={this.handleChange}/>
-          <input type='submit' value='save' onClick={this.handleSave}/>
         </form>
       </div>
     );
