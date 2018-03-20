@@ -1,5 +1,12 @@
 export const fetchNotes = ()=>{
-  return JSON.parse(localStorage.getItem('notes'));
+  if(localStorage.getItem('notes')){
+    return JSON.parse(localStorage.getItem('notes'));
+  }
+  else {
+    let notes =localStorage.setItem('notes', JSON.stringify([]));
+    return notes;
+  }
+
 };
 
 export const fetchNote = id =>{
@@ -10,8 +17,8 @@ export const fetchNote = id =>{
 
 export const createNote = note => {
   let notes = JSON.parse(localStorage.getItem('notes'));
+  console.log(notes);
   notes.push(note);
-  console.log(note);
   localStorage.setItem('notes', JSON.stringify(notes));
   return note;
 };

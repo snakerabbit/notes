@@ -20,7 +20,7 @@ class App extends Component {
     super(props);
     this.state = {
       notes:[],
-      current:JSON.parse(localStorage.getItem('notes'))[0],
+      current:null,
       modalOpen: false
     };
 
@@ -71,7 +71,6 @@ class App extends Component {
 
 
   componentDidMount(){
-
     this.props.fetchNotes();
   }
   render() {
