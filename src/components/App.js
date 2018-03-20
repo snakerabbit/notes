@@ -11,7 +11,8 @@ class App extends Component {
     super(props);
     this.state = {
       notes:[],
-      current:JSON.parse(localStorage.getItem('notes'))[0]
+      current:JSON.parse(localStorage.getItem('notes'))[0],
+      modalOpen: false
     };
 
     this.createNote = this.createNote.bind(this);
@@ -55,6 +56,7 @@ class App extends Component {
       <div className="App">
         <ToolBar createNote={this.createNote} notes={this.props.notes} deleteNote={this.deleteNote}/>
         <List notes={this.props.notes} setCurrentNote={this.setCurrentNote} fetchNote={this.props.fetchNote}/>
+        <div id='hidden-div'></div>
         <Note note={this.state.current} updateNote={this.props.updateNote}/>
       </div>
     );
