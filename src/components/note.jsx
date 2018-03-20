@@ -4,9 +4,9 @@ class Note extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      title:this.props.note.title,
-      text:this.props.note.text,
-      objectID: this.props.note.objectID
+      title:'',
+      text:'',
+      objectID: ''
     };
 
   this.handleChange = this.handleChange.bind(this);
@@ -19,7 +19,7 @@ class Note extends React.Component {
       text:e.target.value
     });
 
-    setTimeout(this.handleSave, 3000);
+    setTimeout(this.handleSave, 1000);
   }
 
 
@@ -38,26 +38,35 @@ class Note extends React.Component {
 
 
   componentWillReceiveProps(newProps){
-    if(this.props.note !== newProps.note){
-
+    if(newProps.note===undefined){
       this.setState({
-        title:newProps.note.title,
-        text:newProps.note.text,
-        objectID: newProps.note.objectID
+        title:'',
+        text:'',
+        objectID:''
       });
+    }
+
+    else if(this.props.note !== newProps.note){
+
+        this.setState({
+          title:newProps.note.title,
+          text:newProps.note.text,
+          objectID: newProps.note.objectID
+        });
     }
   }
 
   render(){
-    return(
-      <div className='note'>
-        <form>
-          <textarea placeholder='type here...'
-            value={this.state.text} id='input'
-            onChange={this.handleChange}/>
-        </form>
-      </div>
-    );
+      return(
+        <div className='note'>
+          <form>
+            <textarea placeholder='type here...'
+              value={this.state.text} id='input'
+              onChange={this.handleChange}/>
+          </form>
+        </div>
+      );
+
   }
 }
 
