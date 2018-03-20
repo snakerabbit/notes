@@ -7,8 +7,8 @@ class List extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e){
-
+  handleClick(note){
+    return this.props.setCurrentNote(note);
   }
 
 
@@ -17,7 +17,7 @@ class List extends React.Component {
       <div className='list'>
         {this.props.notes.map((note, idx) =>{
           return(
-            <ListItem key={idx} note={note}/>
+            <ListItem key={idx} note={note} handleClick={this.handleClick}/>
           );
         })}
       </div>

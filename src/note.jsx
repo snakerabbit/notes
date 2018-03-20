@@ -4,11 +4,12 @@ class Note extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      title:'',
-      text:''
+      title:this.props.note.title,
+      text:this.props.note.text
     };
 
   this.handleChange = this.handleChange.bind(this);
+  this.handleSave = this.handleSave.bind(this);
   }
 
   handleChange(e){
@@ -17,13 +18,25 @@ class Note extends React.Component {
       text:e.target.value,
       title:e.target.value.split('\n')[0] || ''
     });
+
+  }
+
+  handleSave(e){
+    e.preventDefault();
+    let newNote = {
+      title: this.state.title,
+      text: this.state.text
+    };
+
+    this.props.updateNote(newNote);
   }
 
   render(){
     return(
       <div className='note'>
         <form>
-          <textarea placeholder='type here...' id='input' onChange={this.handleChange}/>
+          <textarea placeholder='type here...' defaultValue={this.props.note.text} id='input' onChange={this.handleChange}/>
+          <input type='submit' value='save' onClick={this.handleSave}/>
         </form>
       </div>
     );

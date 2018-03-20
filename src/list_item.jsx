@@ -7,7 +7,7 @@ class ListItem extends React.Component {
   }
 
   handleClick(e){
-    alert(this.props.note.title);
+    return this.props.handleClick(this.props.note);
   }
 
   render(){
