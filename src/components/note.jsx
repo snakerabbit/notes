@@ -24,14 +24,25 @@ class Note extends React.Component {
 
 
 
+
   handleSave(){
     let newNote={
       title:this.state.title,
       text: this.state.text,
       objectID: this.state.objectID
     };
-    if(this.state.title === "New Note" && this.state.text){
-      newNote.title = newNote.text.split('\n')[0];
+    if(this.state.text){
+      let firstLine = newNote.text.split('\n')[0];
+      let newTitle = firstLine;
+      let count=3;
+      while(newTitle.length > 12 && count !=0){
+        newTitle = firstLine.split(' ').slice(0, count).join(' ')+"...";
+        count -=1;
+      }
+      if(newTitle.length > 12){
+        newTitle = newTitle.slice(0, 9)+"...";
+      }
+      newNote.title = newTitle;
     }
     this.props.updateNote(newNote);
   }
@@ -48,7 +59,6 @@ class Note extends React.Component {
 
 
   componentWillReceiveProps(newProps){
-    console.log(newProps);
     if(newProps.note===undefined){
       this.setState({
         title:'',
